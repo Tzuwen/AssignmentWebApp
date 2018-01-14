@@ -1,0 +1,72 @@
+﻿@model PagedList.IPagedList<AssignmentWebApp.Models.Product>
+@using PagedList.Mvc;
+
+<h1>Hello shop owner</h1>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    @Html.TextBox("searchKeyword", ViewBag.CurrentFilter as string) <input type="submit" name="submit" value="Search" />
+}
+
+<table class="table">
+    <tr>
+        <th width="20%">
+            Title
+        </th>
+        <th width="10%">
+            Price
+        </th>
+        <th width="50%">
+            Description
+        </th>
+        <th width="20%"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListPrice)
+            </td>
+            <td>
+                @if (@item.Description.Count() > 20)
+                {
+                    @(@item.Description.Substring(0, 20) + "...")
+                }
+                else
+                {
+                    @Html.DisplayFor(modelItem => item.Description)
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter }))
+
+
+<link rel="stylesheet" href="~/Content/PagedList.css">
+<style type="text/css" media="screen">
+
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        border: 1px solid #4286f4;
+    }
+    
+        table td {
+            border: 1px solid #4286f4;
+        }
+</style>

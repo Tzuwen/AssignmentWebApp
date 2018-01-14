@@ -1,0 +1,37 @@
+﻿@model AssignmentWebApp.Models.Product
+
+<div>
+    <h1>Product</h1>
+
+    <table class="table">
+        <tr>
+            <td>Title</td>
+            <td>@Html.DisplayFor(model => model.Name)</td>           
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Html.DisplayFor(model => model.ListPrice)</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>@Html.DisplayFor(model => model.Description)</td>
+        </tr>
+    </table>
+   </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<style type="text/css" media="screen">
+
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        border: 1px solid #4286f4;
+    }
+
+        table td {
+            border: 1px solid #4286f4;
+        }
+</style>
