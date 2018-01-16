@@ -2,10 +2,14 @@
 AssignmentWebApp
 
 Please download the the Microsoft Adventureworks DB from 
+
 http://msftdbprodsamples.codeplex.com/releases/view/93587 
+
 and add the mdf to the App_Data folder
 
  3 stored procedure is need for this project
+ 
+ 
  
  --Get all products
 CREATE PROCEDURE [dbo].[GetAllProducts]
@@ -49,6 +53,7 @@ BEGIN
 	WHERE p.ProductID = @ProductID
 	ORDER BY p.[ProductID];
 END
+
 GO
 
 
@@ -68,4 +73,5 @@ BEGIN
 END
 
 SELECT @Result AS Result
+
 GO
