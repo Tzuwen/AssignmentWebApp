@@ -31,6 +31,7 @@ BEGIN
     ON pmx.[ProductDescriptionID] = pd.[ProductDescriptionID]
 	ORDER BY p.[ProductID];
 END
+
 GO
 
 
