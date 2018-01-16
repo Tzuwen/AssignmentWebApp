@@ -12,6 +12,7 @@ and add the mdf to the App_Data folder
  
  
  --Get all products
+ 
 CREATE PROCEDURE [dbo].[GetAllProducts]
 	
 AS
@@ -34,6 +35,7 @@ GO
 
 
 --Get product
+
 CREATE PROCEDURE [dbo].[GetProduct]
 	@ProductID int = 0
 AS
@@ -58,6 +60,7 @@ GO
 
 
 --Update product name
+
 CREATE PROCEDURE [dbo].[UpdateProduct]
 	@ProductID int = 0,
 	@Name varchar(50)
